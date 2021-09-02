@@ -1,0 +1,35 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+}
+
+.photo {
+  padding-top: 10px;
+  width: 100%;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 4%;
+}
+@media screen and (min-width: 768px) {
+  .photo {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+  }
+  .photo:nth-child(2n + 2) {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1230px) {
+  .photo {
+    width: calc((100% - 60px) / 3);
+    margin-right: 0;
+  }
+
+  .photo:not(:nth-child(3n)) {
+    margin-right: 30px;
+  }
+}
