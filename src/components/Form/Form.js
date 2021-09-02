@@ -1,6 +1,14 @@
-import Button from "@material-ui/core/Button"
+import { useState } from "react"
+
+import s from "./Form.module.css"
 
 const Form = ({ onFormSubmit }) => {
+  const [sol, setSol] = useState(1000)
+
+  const onSolChange = (e) => {
+    setSol(e.target.value)
+  }
+
   return (
     <form action="submit" onSubmit={onFormSubmit}>
       <h2>Choice Rover</h2>
@@ -25,11 +33,12 @@ const Form = ({ onFormSubmit }) => {
         <option value="MINITES">Miniature Thermal Emission Spectrometer (Mini-TES) </option>
       </select>
       <h2>Choice Sol</h2>
-      <span>0</span> <input type="range" name="sol" min="0" max="1000" step="1" />
+      <span className={s.sol}>{sol}</span>
+      <span>0</span> <input onChange={onSolChange} value={sol} type="range" name="sol" min="0" max="1000" step="1" />
       <span>1000</span>
-      <Button type="submit" color="secondary">
+      <button className={s.button} type="submit" color="secondary">
         Photos
-      </Button>
+      </button>
     </form>
   )
 }
